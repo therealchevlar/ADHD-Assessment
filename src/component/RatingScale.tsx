@@ -1,3 +1,0 @@
-import type { Rating } from '../types';
-export function RatingScale({value,onChange}:{value:Rating;onChange:(value:Rating)=>void}){return <div className="scale">{['Never','Rarely','Sometimes','Often','Very often'].map((label,n)=><label key={label} className={value===n?'checked':''}><input type="radio" checked={value===n} onChange={()=>onChange(n as Rating)}/>{n} · {label}</label>)}</div>}
-export function Slider({label,value,onChange}:{label:string;value:Rating;onChange:(value:Rating)=>void}){return <div className="rating-row"><div><b>{label}</b><small>0 = none · 4 = severe</small></div><input aria-label={label} type="range" min="0" max="4" value={value} onChange={e=>onChange(Number(e.target.value) as Rating)}/><output>{value}</output></div>}
